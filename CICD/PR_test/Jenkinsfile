@@ -9,13 +9,13 @@ pipeline {
             steps {
                 sh '''#!/bin/bash
                     set -e
-                    pip install asdasdasdd
                     source ~/.bashrc
                     . $JENKINS_ANACONDA_DIR/etc/profile.d/conda.sh
                     if [ ! -d "$JENKINS_ANACONDA_DIR/envs/$JENKINS_PYTHON_ENV" ]; then
                         conda create --name $JENKINS_PYTHON_ENV python=3.6 -y
                     fi
                     conda activate $JENKINS_PYTHON_ENV
+                    pip install asdasdasdd
                     pip install --no-cache-dir -e .
                     pip install --no-cache-dir coverage
 
