@@ -8,6 +8,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''#!/bin/bash
+                    set -e
+                    pip install asdasdasdd
                     source ~/.bashrc
                     . $JENKINS_ANACONDA_DIR/etc/profile.d/conda.sh
                     if [ ! -d "$JENKINS_ANACONDA_DIR/envs/$JENKINS_PYTHON_ENV" ]; then
@@ -16,6 +18,7 @@ pipeline {
                     conda activate $JENKINS_PYTHON_ENV
                     pip install --no-cache-dir -e .
                     pip install --no-cache-dir coverage
+
                 '''
             }
         }
