@@ -1,0 +1,26 @@
+pipeline{
+    agent {label 'master'}
+
+    environment {
+        JENKINS_ANACONDA_DIR='/home/ubuntu/anaconda3'
+        JENKINS_MASTER_ANACONDA_DIR='/var/jenkins_home/anaconda3'
+        JENKINS_PYTHON_ENV='nightly_env'
+        LOCAL_DATASET_PATH='/home/ubuntu/fastestimator_data'
+        S3_DATASET_PATH='s3://fastestimator-public/nightly_test'
+    }
+
+    stages {
+
+        stage('Deploy-docker'){
+            agent {label 'master'}
+            steps{
+                sh '''
+                    set -e
+                    rm -rf ./fastestimator-misc
+                    git clone https://github.com/fastestimator-util/fastestimator-misc.git fastestimator-misc
+                    docker image ls
+                '''
+            }
+        }
+    }
+}
