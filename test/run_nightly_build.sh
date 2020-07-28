@@ -34,37 +34,37 @@ for file in $(find $dir_path/apphub_scripts -type f); do
     fi
 done
 
-rm -rf $dir_path"/tutorial"
-cp -r $(realpath $dir_path/../tutorial) $dir_path
+# rm -rf $dir_path"/tutorial"
+# cp -r $(realpath $dir_path/../tutorial) $dir_path
 
-# run tutorial
-for nb_in in $(find $dir_path/tutorial -type f); do
-    if [[ $nb_in == *.ipynb ]]; then
-        echo $nb_in
-        nb_out=${nb_in/'.ipynb'/'_out.ipynb'}
-        current_dir=$(dirname $nb_in)
-        stderr_file=${nb_in/'.ipynb'/'_stderr.txt'}
-        start=`date +%s`
-        papermill $nb_in $nb_out -k nightly_build 2>> $stderr_file --cwd $current_dir
-        result[$nb_in]=$?
-        end=`date +%s`
+# # run tutorial
+# for nb_in in $(find $dir_path/tutorial -type f); do
+#     if [[ $nb_in == *.ipynb ]]; then
+#         echo $nb_in
+#         nb_out=${nb_in/'.ipynb'/'_out.ipynb'}
+#         current_dir=$(dirname $nb_in)
+#         stderr_file=${nb_in/'.ipynb'/'_stderr.txt'}
+#         start=`date +%s`
+#         papermill $nb_in $nb_out -k nightly_build 2>> $stderr_file --cwd $current_dir
+#         result[$nb_in]=$?
+#         end=`date +%s`
 
-        # clean GPU memory
-        if ls /dev/nvidia* 1> /dev/null 2>&1; then
-            for i in $(lsof /dev/nvidia* | awk 'FNR>1 {print $2}' | sort -u); do
-                kill -9 $i;
-            done
-        fi
+#         # clean GPU memory
+#         if ls /dev/nvidia* 1> /dev/null 2>&1; then
+#             for i in $(lsof /dev/nvidia* | awk 'FNR>1 {print $2}' | sort -u); do
+#                 kill -9 $i;
+#             done
+#         fi
 
-        exectime[$nb_in]=$((end-start))
-        if [ ! ${result[$nb_in]} -eq 0 ]; then
-            echo "---------------- error log of $nb_in-------------------"
-            cat "${nb_in/'.ipynb'/'_stderr.txt'}"
-            echo "-------------------------------------------------------"
-        fi
+#         exectime[$nb_in]=$((end-start))
+#         if [ ! ${result[$nb_in]} -eq 0 ]; then
+#             echo "---------------- error log of $nb_in-------------------"
+#             cat "${nb_in/'.ipynb'/'_stderr.txt'}"
+#             echo "-------------------------------------------------------"
+#         fi
 
-    fi
-done
+#     fi
+# done
 
 # print report
 echo "------------------------ report ------------------------"
