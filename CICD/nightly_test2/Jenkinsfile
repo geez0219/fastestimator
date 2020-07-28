@@ -1,0 +1,71 @@
+def IMAGE_TAG="$BUILD_TAG".toLowerCase()
+
+pipeline {
+    agent {label 'master'}
+    environment {
+        IMAGE_TAG="$IMAGE_TAG"
+        DOCKER_DATASET_PATH='/root/fastestimator_data'
+        LOCAL_DATASET_PATH='/home/ubuntu/fastestimator_data'
+        S3_DATASET_PATH='s3://fastestimator-public/nightly_test'
+    }
+    stages {
+        stage('nightly_test') {
+            parallel {
+                stage('GPU') {
+                    agent {label 'nightly_gpu'}
+                    stages {
+                        stage('download dataset') {
+                            steps {
+                                sh 'aws s3 sync $S3_DATASET_PATH $LOCAL_DATASET_PATH --delete'
+                            }
+                        }
+                        stage('run_test') {
+                            steps {
+                                script {
+                                    def customImage = docker.build('$IMAGE_TAG', \
+                                                                   '--no-cache - < docker/nightly/Dockerfile.gpu')
+                                    try {
+                                        customImage.inside('-u root -v $LOCAL_DATASET_PATH:$DOCKER_DATASET_PATH \
+                                                        --gpus all --shm-size 50g') {
+                                            sh 'bash test/run_nightly_build.sh'
+                                        }
+                                    }
+                                    finally {
+                                        sh 'docker rmi "$IMAGE_TAG"'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                stage('CPU') {
+                    agent {label 'nightly_cpu'}
+                    stages {
+                        stage('download_dataset') {
+                            steps {
+                                sh 'aws s3 sync $S3_DATASET_PATH $LOCAL_DATASET_PATH --delete'
+                            }
+                        }
+                        stage('run_test') {
+                            steps {
+                                script {
+                                    def customImage = docker.build('$IMAGE_TAG', \
+                                                                '--no-cache - < docker/nightly/Dockerfile.cpu')
+                                    try {
+                                        customImage.inside('-u root -v $LOCAL_DATASET_PATH:$DOCKER_DATASET_PATH \
+                                                        --shm-size 50g') {
+                                            sh 'bash test/run_nightly_build.sh'
+                                        }
+                                    }
+                                    finally {
+                                        sh 'docker rmi "$IMAGE_TAG"'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
