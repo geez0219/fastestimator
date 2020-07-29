@@ -32,6 +32,9 @@ from fastestimator.op.tensorop.loss import CrossEntropy
 from fastestimator.op.tensorop.model import ModelOp, UpdateOp
 from fastestimator.trace.io import BestModelSaver
 
+import os
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
+
 LATENT_DIM = 50
 
 
