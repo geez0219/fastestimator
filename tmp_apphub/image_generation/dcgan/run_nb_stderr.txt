@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/bin/papermill", line 5, in <module>
+    from papermill.cli import papermill
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/__init__.py", line 4, in <module>
+    from .execute import execute_notebook
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/execute.py", line 8, in <module>
+    from .iorw import load_notebook_node, write_ipynb, get_pretty_path, local_file_io_cwd
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/iorw.py", line 16, in <module>
+    from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/tenacity/__init__.py", line 32, in <module>
+    import typing as t
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/typing.py", line 1861, in <module>
+    class Sequence(Reversible[T_co], Collection[T_co],
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/typing.py", line 679, in inner
+    return cached(*args, **kwds)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/typing.py", line 1143, in __getitem__
+    orig_bases=self.__orig_bases__)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/typing.py", line 978, in __new__
+    self = super().__new__(cls, name, bases, namespace, _root=True)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/typing.py", line 137, in __new__
+    return super().__new__(cls, name, bases, namespace)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/abc.py", line 133, in __new__
+    cls = super().__new__(mcls, name, bases, namespace, **kwargs)
+KeyboardInterrupt

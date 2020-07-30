@@ -1,0 +1,12 @@
+Input Notebook:  /home/geez219/python_project/fastestimator/apphub/instance_detection/retinanet/retinanet.ipynb
+Output Notebook: /home/geez219/python_project/fastestimator/test/apphub_scripts/instance_detection/retinanet/retinanet_out.ipynb
+Generating grammar tables from /home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/blib2to3/Grammar.txt
+Writing grammar tables to /home/geez219/.cache/black/19.10b0/Grammar3.6.10.final.0.pickle
+Writing failed: [Errno 2] No such file or directory: '/home/geez219/.cache/black/19.10b0/tmp4qsq9dpa'
+Generating grammar tables from /home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/blib2to3/PatternGrammar.txt
+Writing grammar tables to /home/geez219/.cache/black/19.10b0/PatternGrammar3.6.10.final.0.pickle
+Writing failed: [Errno 2] No such file or directory: '/home/geez219/.cache/black/19.10b0/tmpp1mrgltd'
+Executing:   0%|          | 0/49 [00:00<?, ?cell/s]Executing:   0%|          | 0/49 [00:00<?, ?cell/s]
+
+Aborted!
+[IPKernelApp] WARNING | Parent appears to have exited, shutting down.

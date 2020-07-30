@@ -1,0 +1,24 @@
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/bin/papermill", line 5, in <module>
+    from papermill.cli import papermill
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/__init__.py", line 4, in <module>
+    from .execute import execute_notebook
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/execute.py", line 8, in <module>
+    from .iorw import load_notebook_node, write_ipynb, get_pretty_path, local_file_io_cwd
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/iorw.py", line 10, in <module>
+    import requests
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/requests/__init__.py", line 112, in <module>
+    from . import utils
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/requests/utils.py", line 27, in <module>
+    from ._internal_utils import to_native_string
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/requests/_internal_utils.py", line 11, in <module>
+    from .compat import is_py2, builtin_str, str
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/requests/compat.py", line 61, in <module>
+    from http.cookies import Morsel
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 674, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 764, in get_code
+  File "<frozen importlib._bootstrap_external>", line 833, in get_data
+KeyboardInterrupt

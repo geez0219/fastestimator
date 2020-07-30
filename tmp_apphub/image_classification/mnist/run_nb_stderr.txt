@@ -1,0 +1,38 @@
+Input Notebook:  /home/geez219/python_project/fastestimator/apphub/image_classification/mnist/mnist.ipynb
+Output Notebook: /home/geez219/python_project/fastestimator/test/apphub_scripts/image_classification/mnist/mnist_out.ipynb
+Generating grammar tables from /home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/blib2to3/Grammar.txt
+Writing grammar tables to /home/geez219/.cache/black/19.10b0/Grammar3.6.10.final.0.pickle
+Writing failed: [Errno 2] No such file or directory: '/home/geez219/.cache/black/19.10b0/tmp6mf9rk0o'
+Generating grammar tables from /home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/blib2to3/PatternGrammar.txt
+Writing grammar tables to /home/geez219/.cache/black/19.10b0/PatternGrammar3.6.10.final.0.pickle
+Writing failed: [Errno 2] No such file or directory: '/home/geez219/.cache/black/19.10b0/tmp4mb3eywj'
+Executing:   0%|          | 0/22 [00:00<?, ?cell/s]Executing notebook with kernel: nightly_build
+Executing:   5%|[IPKernelApp] WARNING | Parent appears to have exited, shutting down.
+4: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:
+2020-07-09 07:40:35.327224: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:
+2020-07-09 07:40:35.327237: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Executing:  14%|█▎        | 3/22 [00:03<00:16,  1.18cell/s]Executing:  32%|███▏      | 7/22 [00:03<00:09,  1.62cell/s]Executing:  50%|█████     | 11/22 [00:03<00:04,  2.25cell/s]2020-07-09 07:40:37.669567: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcuda.so.1
+2020-07-09 07:40:37.683310: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-07-09 07:40:37.683697: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1555] Found device 0 with properties: 
+pciBusID: 0000:01:00.0 name: GeForce GTX 1080 Ti computeCapability: 6.1
+coreClock: 1.6705GHz coreCount: 28 deviceMemorySize: 10.91GiB deviceMemoryBandwidth: 451.17GiB/s
+2020-07-09 07:40:37.683729: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudart.so.10.1
+2020-07-09 07:40:37.683804: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcublas.so.10'; dlerror: libcublas.so.10: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:
+2020-07-09 07:40:37.683863: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcufft.so.10'; dlerror: libcufft.so.10: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:
+2020-07-09 07:40:37.683918: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcurand.so.10'; dlerror: libcurand.so.10: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:
+2020-07-09 07:40:37.683975: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusolver.so.10'; dlerror: libcusolver.so.10: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:
+2020-07-09 07:40:37.684037: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcusparse.so.10'; dlerror: libcusparse.so.10: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /usr/local/cuda-10.0/lib64:/usr/local/cuda/extras/CUPTI/lib64:
+2020-07-09 07:40:37.686539: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library libcudnn.so.7
+2020-07-09 07:40:37.686554: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1592] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+2020-07-09 07:40:37.686880: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-07-09 07:40:37.709584: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3699850000 Hz
+2020-07-09 07:40:37.710175: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5651bf2d70e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-07-09 07:40:37.710189: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-07-09 07:40:37.787704: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:981] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2020-07-09 07:40:37.788152: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x5651bf36d8e0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-07-09 07:40:37.788170: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2020-07-09 07:40:37.788257: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1096] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-07-09 07:40:37.788264: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1102]      
+Executing:  59%|█████▉    | 13/22 [00:04<00:03,  2.63cell/s]2020-07-09 07:40:38.225656: W tensorflow/python/util/util.cc:319] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+Executing:  73%|███████▎  | 16/22 [00:04<00:01,  3.60cell/s]Executing:  82%|████████▏ | 18/22 [00:07<00:02,  1.54cell/s]Executing:  91%|█████████ | 20/22 [00:08<00:01,  1.61cell/s]Executing: 100%|██████████| 22/22 [00:08<00:00,  1.97cell/s]Executing: 100%|██████████| 22/22 [00:09<00:00,  2.31cell/s]

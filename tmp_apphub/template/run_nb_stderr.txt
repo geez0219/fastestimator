@@ -1,0 +1,39 @@
+Input Notebook:  /home/geez219/python_project/fastestimator/apphub/template/.ipynb
+Output Notebook: /home/geez219/python_project/fastestimator/test/apphub_scripts/template/_out.ipynb
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/iorw.py", line 197, in read
+    json.loads(path)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/json/__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/bin/papermill", line 8, in <module>
+    sys.exit(papermill())
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/click/core.py", line 829, in __call__
+    return self.main(*args, **kwargs)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/click/core.py", line 782, in main
+    rv = self.invoke(ctx)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/click/core.py", line 1066, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/click/core.py", line 610, in invoke
+    return callback(*args, **kwargs)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/cli.py", line 238, in papermill
+    execution_timeout=execution_timeout,
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/execute.py", line 79, in execute_notebook
+    nb = load_notebook_node(input_path)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/iorw.py", line 410, in load_notebook_node
+    nb = nbformat.reads(papermill_io.read(notebook_path), as_version=4)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/iorw.py", line 101, in read
+    notebook_metadata = self.get_handler(path).read(path)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/iorw.py", line 201, in read
+    raise e
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/iorw.py", line 191, in read
+    with io.open(path, 'r', encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/home/geez219/python_project/fastestimator/apphub/template/.ipynb'

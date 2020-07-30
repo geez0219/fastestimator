@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/usr/local/bin/fastestimator", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.6/dist-packages/fastestimator/cli/main.py", line 39, in main
+    run(sys.argv[1:])
+  File "/usr/local/lib/python3.6/dist-packages/fastestimator/cli/main.py", line 35, in run
+    args.func(vars(args), unknown)
+  File "/usr/local/lib/python3.6/dist-packages/fastestimator/cli/train.py", line 58, in train
+    estimator = _get_estimator(args, unknown)
+  File "/usr/local/lib/python3.6/dist-packages/fastestimator/cli/train.py", line 46, in _get_estimator
+    spec_module = __import__(module_name, globals(), locals(), ["get_estimator"])
+ModuleNotFoundError: No module named 'cyclegan_tf'

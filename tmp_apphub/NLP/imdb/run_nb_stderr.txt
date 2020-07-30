@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/bin/papermill", line 5, in <module>
+    from papermill.cli import papermill
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/__init__.py", line 4, in <module>
+    from .execute import execute_notebook
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/execute.py", line 8, in <module>
+    from .iorw import load_notebook_node, write_ipynb, get_pretty_path, local_file_io_cwd
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/papermill/iorw.py", line 16, in <module>
+    from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/tenacity/__init__.py", line 32, in <module>
+    import typing as t
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/typing.py", line 1861, in <module>
+    class Sequence(Reversible[T_co], Collection[T_co],
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/typing.py", line 679, in inner
+    return cached(*args, **kwds)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/typing.py", line 1125, in __getitem__
+    elif self.__origin__ in (Generic, _Protocol):
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/typing.py", line 1090, in __eq__
+    if not isinstance(other, GenericMeta):
+KeyboardInterrupt

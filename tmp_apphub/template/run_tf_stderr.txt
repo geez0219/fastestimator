@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/bin/fastestimator", line 11, in <module>
+    load_entry_point('fastestimator', 'console_scripts', 'fastestimator')()
+  File "/home/geez219/python_project/fastestimator/fastestimator/cli/main.py", line 39, in main
+    run(sys.argv[1:])
+  File "/home/geez219/python_project/fastestimator/fastestimator/cli/main.py", line 35, in run
+    args.func(vars(args), unknown)
+  File "/home/geez219/python_project/fastestimator/fastestimator/cli/train.py", line 58, in train
+    estimator = _get_estimator(args, unknown)
+  File "/home/geez219/python_project/fastestimator/fastestimator/cli/train.py", line 46, in _get_estimator
+    spec_module = __import__(module_name, globals(), locals(), ["get_estimator"])
+ModuleNotFoundError: No module named '_tf'

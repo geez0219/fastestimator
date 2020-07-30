@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3022, in _dep_map
+    return self.__dep_map
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 2816, in __getattr__
+    raise AttributeError(attr)
+AttributeError: _DistInfoDistribution__dep_map
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3013, in _parsed_pkg_info
+    return self._pkg_info
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 2816, in __getattr__
+    raise AttributeError(attr)
+AttributeError: _pkg_info
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/bin/fastestimator", line 6, in <module>
+    from pkg_resources import load_entry_point
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3252, in <module>
+    @_call_aside
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3236, in _call_aside
+    f(*args, **kwargs)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3265, in _initialize_master_working_set
+    working_set = WorkingSet._build_master()
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 584, in _build_master
+    ws.require(__requires__)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 901, in require
+    needed = self.resolve(parse_requirements(requirements))
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 795, in resolve
+    new_requirements = dist.requires(req.extras)[::-1]
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 2737, in requires
+    dm = self._dep_map
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3024, in _dep_map
+    self.__dep_map = self._compute_dependencies()
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3033, in _compute_dependencies
+    for req in self._parsed_pkg_info.get_all('Requires-Dist') or []:
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3016, in _parsed_pkg_info
+    self._pkg_info = email.parser.Parser().parsestr(metadata)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/email/parser.py", line 67, in parsestr
+    return self.parse(StringIO(text), headersonly=headersonly)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/email/parser.py", line 56, in parse
+    feedparser.feed(data)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/email/feedparser.py", line 175, in feed
+    self._input.push(data)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/email/feedparser.py", line 110, in push
+    parts = self._partial.readlines()
+KeyboardInterrupt

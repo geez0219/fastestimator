@@ -1,0 +1,21 @@
+Input Notebook:  /data/apphub/adversarial_training/fgsm/fgsm.ipynb
+Output Notebook: /data/test/apphub_scripts/adversarial_training/fgsm/fgsm_out.ipynb
+Generating grammar tables from /usr/local/lib/python3.6/dist-packages/blib2to3/Grammar.txt
+Writing grammar tables to /root/.cache/black/19.10b0/Grammar3.6.9.final.0.pickle
+Writing failed: [Errno 2] No such file or directory: '/root/.cache/black/19.10b0/tmpl9dfsda8'
+Generating grammar tables from /usr/local/lib/python3.6/dist-packages/blib2to3/PatternGrammar.txt
+Writing grammar tables to /root/.cache/black/19.10b0/PatternGrammar3.6.9.final.0.pickle
+Writing failed: [Errno 2] No such file or directory: '/root/.cache/black/19.10b0/tmpjf3s5szh'
+Executing:   0%|          | 0/32 [00:00<?, ?cell/s]Executing notebook with kernel: nightly_build
+Executing:   3%|▎         | 1/32 [00:00<00:27,  1.14cell/s]2020-07-26 08:22:21.311172: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-07-26 08:22:21.311266: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-07-26 08:22:21.311282: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Executing:   9%|▉         | 3/32 [00:03<00:29,  1.01s/cell]Executing:  19%|█▉        | 6/32 [00:03<00:18,  1.39cell/s]Executing:  22%|██▏       | 7/32 [00:04<00:17,  1.44cell/s]Executing:  31%|███▏      | 10/32 [00:04<00:10,  2.02cell/s]2020-07-26 08:22:23.867091: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-07-26 08:22:23.867115: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-07-26 08:22:23.867136: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:163] no NVIDIA GPU device is present: /dev/nvidia0 does not exist
+2020-07-26 08:22:23.867348: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-07-26 08:22:23.891248: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3699850000 Hz
+2020-07-26 08:22:23.894480: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x6bb40c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-07-26 08:22:23.894584: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Executing:  38%|███▊      | 12/32 [00:04<00:07,  2.63cell/s]2020-07-26 08:22:24.079225: W tensorflow/python/util/util.cc:319] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+Executing:  47%|████▋     | 15/32 [00:04<00:04,  3.59cell/s]Executing:  53%|█████▎    | 17/32 [00:11<00:17,  1.19s/cell]Executing:  59%|█████▉    | 19/32 [00:13<00:15,  1.19s/cell]Executing:  69%|██████▉   | 22/32 [00:15<00:10,  1.04s/cell]Executing:  78%|███████▊  | 25/32 [00:20<00:08,  1.19s/cell]Executing:  88%|████████▊ | 28/32 [00:20<00:03,  1.15cell/s]Executing:  94%|█████████▍| 30/32 [00:21<00:01,  1.57cell/s]Executing:  97%|█████████▋| 31/32 [00:22<00:00,  1.07cell/s]Executing: 100%|██████████| 32/32 [00:24<00:00,  1.32cell/s]

@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3022, in _dep_map
+    return self.__dep_map
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 2816, in __getattr__
+    raise AttributeError(attr)
+AttributeError: _DistInfoDistribution__dep_map
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/geez219/anaconda3/envs/tf2.1/bin/fastestimator", line 6, in <module>
+    from pkg_resources import load_entry_point
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3252, in <module>
+    @_call_aside
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3236, in _call_aside
+    f(*args, **kwargs)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3265, in _initialize_master_working_set
+    working_set = WorkingSet._build_master()
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 584, in _build_master
+    ws.require(__requires__)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 901, in require
+    needed = self.resolve(parse_requirements(requirements))
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 795, in resolve
+    new_requirements = dist.requires(req.extras)[::-1]
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 2737, in requires
+    dm = self._dep_map
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3024, in _dep_map
+    self.__dep_map = self._compute_dependencies()
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3034, in _compute_dependencies
+    reqs.extend(parse_requirements(req))
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3095, in parse_requirements
+    yield Requirement(line)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/__init__.py", line 3102, in __init__
+    super(Requirement, self).__init__(requirement_string)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/packaging/requirements.py", line 90, in __init__
+    req = REQUIREMENT.parseString(requirement_string)
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 1644, in parseString
+    loc, tokens = self._parse( instring, 0 )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 1402, in _parseNoCache
+    loc,tokens = self.parseImpl( instring, preloc, doActions )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 3417, in parseImpl
+    loc, exprtokens = e._parse( instring, loc, doActions )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 1402, in _parseNoCache
+    loc,tokens = self.parseImpl( instring, preloc, doActions )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 3552, in parseImpl
+    ret = e._parse( instring, loc, doActions )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 1402, in _parseNoCache
+    loc,tokens = self.parseImpl( instring, preloc, doActions )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 3400, in parseImpl
+    loc, resultlist = self.exprs[0]._parse( instring, loc, doActions, callPreParse=False )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 1402, in _parseNoCache
+    loc,tokens = self.parseImpl( instring, preloc, doActions )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 3417, in parseImpl
+    loc, exprtokens = e._parse( instring, loc, doActions )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 1428, in _parseNoCache
+    tokens = fn( instring, tokensStart, retTokens )
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 1072, in wrapper
+    ret = func(*args[limit[0]:])
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/packaging/requirements.py", line 54, in <lambda>
+    _VERSION_SPEC.setParseAction(lambda s, l, t: t._raw_spec or '')
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 646, in __getattr__
+    return self[name]
+  File "/home/geez219/anaconda3/envs/tf2.1/lib/python3.6/site-packages/pkg_resources/_vendor/pyparsing.py", line 412, in __getitem__
+    if isinstance( i, (int,slice) ):
+KeyboardInterrupt
