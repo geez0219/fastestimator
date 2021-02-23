@@ -18,12 +18,14 @@ from io import StringIO
 import numpy as np
 import tensorflow as tf
 import torch
+from tensorflow.python.autograph.impl.api import StagingError
 from torch.utils.data import DataLoader, Dataset
 
 import fastestimator as fe
 from fastestimator.architecture.pytorch.lenet import LeNet as LeNetTorch
 from fastestimator.architecture.tensorflow.lenet import LeNet as LeNetTf
 from fastestimator.dataset.data import mnist
+from fastestimator.network import TFNetwork
 from fastestimator.op.tensorop import TensorOp
 from fastestimator.op.tensorop.loss import CrossEntropy
 from fastestimator.op.tensorop.model import ModelOp, UpdateOp
@@ -177,7 +179,11 @@ class TestEstimatorConfigureLoader(unittest.TestCase):
         new_loader = est._configure_loader(loader)
 
         with self.subTest("check loader type"):
-            self.assertIsInstance(new_loader, tf.data.Dataset)
+            strategy = tf.distribute.get_strategy()
+            if isinstance(strategy, tf.distribute.MirroredStrategy):
+                self.assertIsInstance(new_loader, tf.distribute.DistributedDataset)
+            else:
+                self.assertIsInstance(new_loader, tf.data.Dataset)
 
         with self.subTest("max_train_steps_per_epoch=3"):
             iterator = iter(new_loader)
@@ -204,7 +210,11 @@ class TestEstimatorConfigureLoader(unittest.TestCase):
         new_loader = est._configure_loader(loader)
 
         with self.subTest("check loader type"):  # it didn't change the data type
-            self.assertIsInstance(new_loader, tf.data.Dataset)
+            strategy = tf.distribute.get_strategy()
+            if isinstance(strategy, tf.distribute.MirroredStrategy) and isinstance(network, TFNetwork):
+                self.assertIsInstance(new_loader, tf.distribute.DistributedDataset)
+            else:
+                self.assertIsInstance(new_loader, tf.data.Dataset)
 
         with self.subTest("max_train_steps_per_epoch=3"):
             iterator = iter(new_loader)
@@ -270,8 +280,14 @@ class TestEstimatorWarmup(unittest.TestCase):
 
         est = fe.Estimator(pipeline=pipeline, network=network, epochs=1)
         est._prepare_traces(run_modes={"train", "eval"})
-        with self.assertRaises(KeyError):
-            est._warmup(warmup=True)
+
+        strategy = tf.distribute.get_strategy()
+        if isinstance(strategy, tf.distribute.MirroredStrategy):
+            with self.assertRaises(StagingError):
+                est._warmup(warmup=True)
+        else:
+            with self.assertRaises(KeyError):
+                est._warmup(warmup=True)
 
     def test_estimator_warmup_trace_missing_key(self):
         loader = get_sample_tf_dataset()
@@ -289,9 +305,7 @@ class TestEstimatorWarmup(unittest.TestCase):
         loader = get_sample_tf_dataset(expand_axis=1)
         pipeline = fe.Pipeline(train_data=loader)  # "x", "y"
         model = fe.build(model_fn=LeNetTorch, optimizer_fn="adam")
-
         network = fe.Network(ops=[ModelOp(model=model, inputs="x", outputs="y_pred")])
-
         est = fe.Estimator(pipeline=pipeline, network=network, epochs=1, traces=[Trace(inputs="y_pred")])
         est._prepare_traces(run_modes={"train", "eval"})
         est._warmup(warmup=True)
@@ -378,6 +392,13 @@ class TestEstimatorFit(unittest.TestCase):
         ops2 = [ShoutNameOp(name="A", iostream=iostream2), ShoutNameOp(name="B", iostream=iostream2)]
         traces2 = [ShoutNameTrace(name="a", iostream=iostream2), ShoutNameTrace(name="b", iostream=iostream2)]
 
+        # determine if running environment is multi-gpu (only needed for tf backend)
+        strategy = tf.distribute.get_strategy()
+        if isinstance(strategy, tf.distribute.MirroredStrategy):
+            device_count = len(tf.config.list_physical_devices(device_type="GPU"))
+        else:
+            device_count = 1
+
         for trace in traces2:
             trace.on_begin(None)
         for epoch in range(epochs):
@@ -387,9 +408,11 @@ class TestEstimatorFit(unittest.TestCase):
                 for trace in traces2:
                     trace.on_batch_begin(None)
                 if batch == 0:
-                    # ShoutOutTrace will only be invoked once while building static graph (for tf backend)
-                    for op in ops2:
-                        op.forward(None, None)
+                    # ShoutOutTrace will only be invoked the number of times equal to device count while building static
+                    # graph (for tf backend). ex: 4 GPU -> 4 times, CPU -> 1 time
+                    for _ in range(device_count):
+                        for op in ops2:
+                            op.forward(None, None)
                 for trace in traces2:
                     trace.on_batch_end(None)
             for trace in traces2:
@@ -476,6 +499,13 @@ class TestEstimatorTest(unittest.TestCase):
         ops2 = [ShoutNameOp(name="A", iostream=iostream2), ShoutNameOp(name="B", iostream=iostream2)]
         traces2 = [ShoutNameTrace(name="a", iostream=iostream2), ShoutNameTrace(name="b", iostream=iostream2)]
 
+        # determine if running environment is multi-gpu (only needed in tf backend)
+        strategy = tf.distribute.get_strategy()
+        if isinstance(strategy, tf.distribute.MirroredStrategy):
+            device_count = len(tf.config.list_physical_devices(device_type="GPU"))
+        else:
+            device_count = 1
+
         for trace in traces2:
             trace.on_begin(None)
         for epoch in range(epochs):
@@ -485,9 +515,11 @@ class TestEstimatorTest(unittest.TestCase):
                 for trace in traces2:
                     trace.on_batch_begin(None)
                 if batch == 0:
-                    # ShoutOutTrace will only be invoked once while building static graph (for tf backend)
-                    for op in ops2:
-                        op.forward(None, None)
+                    # ShoutOutTrace will only be invoked the number of times equal to device count while building static
+                    # graph (for tf backend). ex: 4 GPU -> 4 times, CPU -> 1 time
+                    for _ in range(device_count):
+                        for op in ops2:
+                            op.forward(None, None)
                 for trace in traces2:
                     trace.on_batch_end(None)
             for trace in traces2:
