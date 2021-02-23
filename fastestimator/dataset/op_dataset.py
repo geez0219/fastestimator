@@ -19,6 +19,7 @@ import numpy as np
 from torch.utils.data import Dataset
 
 from fastestimator.dataset import BatchDataset
+from fastestimator.dataset.part_dataset import PartDataset
 from fastestimator.op.numpyop.numpyop import NumpyOp, forward_numpyop
 from fastestimator.util.traceability_util import traceable
 from fastestimator.util.util import pad_batch
@@ -38,7 +39,7 @@ class OpDataset(Dataset):
     """
     def __init__(self, dataset: Dataset, ops: List[NumpyOp], mode: str) -> None:
         self.dataset = dataset
-        if isinstance(self.dataset, BatchDataset):
+        if isinstance(self.dataset, (BatchDataset, PartDataset)):
             self.dataset.reset_index_maps()
         self.ops = ops
         self.mode = mode

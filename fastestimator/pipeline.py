@@ -26,6 +26,7 @@ from torch.utils.data import DataLoader, Dataset, RandomSampler
 from torch.utils.data.dataloader import default_collate
 
 from fastestimator.dataset.batch_dataset import BatchDataset
+from fastestimator.dataset.part_dataset import PartDataset
 from fastestimator.dataset.op_dataset import OpDataset
 from fastestimator.op.numpyop.meta.one_of import OneOf
 from fastestimator.op.numpyop.meta.sometimes import Sometimes
